@@ -3,6 +3,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 import {
   Box,
   Button,
@@ -17,6 +18,32 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Facebook as FacebookIcon } from "../icons/facebook";
 import { Google as GoogleIcon } from "../icons/google";
+
+const RegisterHandler = (event) => {
+  const BASE_URL='http://127.0.0.1:8000/'
+  const ENTRPRISE_REGISTRATION_URL='users/addenterprise/'
+  const USER_REGISTRATION_URL='users/usersignup/'
+  const USER_LOGIN_URL='users/userlogin/'
+  event.preventDefault();
+  const data = {
+    'registration_number': event.target.lastName.value,
+    'name': event.target.firstName.value,
+    'email': event.target.email.value,
+    // 'sector': event.target.sector.value
+  };
+
+    axios({
+      method: 'post',
+      url: BASE_URL+ENTRPRISE_REGISTRATION_URL,
+      data: data,
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
 
 const Register = () => {
   const router = useRouter();
@@ -69,10 +96,10 @@ const Register = () => {
               Dashboard
             </Button>
           </NextLink>
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={RegisterHandler}>
             <Box sx={{ my: 3 }}>
               <Typography color="textPrimary" variant="h4">
-                Create a new account
+                 Add Your Enterprise
               </Typography>
               <Typography color="textSecondary" variant="body2">
                 Have an account?{" "}
