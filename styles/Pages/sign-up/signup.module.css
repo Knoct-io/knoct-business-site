@@ -1,0 +1,60 @@
+.container {
+    background: url(https://wallpaperaccess.com/full/1303478.jpg);
+    height: 100vh;
+}
+
+.heading span {
+    color: blue;
+}
+
+.user-info input {
+    border: none;
+    outline: none;
+}
+
+.user-info {
+    border: 2px solid #000000;
+}
+
+.o-auth {
+    position: relative;
+    font-size: 12px;
+}
+
+.o-auth span:after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 280px;
+    width: 25%;
+    /* height: 100%; */
+    border: 2px solid #d4d4d4;
+    z-index: 0;
+}
+
+.in-valid {
+    border: 2px dashed red;
+}
+
+.in-valid input {
+    border: none;
+    outline: none;
+}
+
+.o-auth span:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 30px;
+    width: 25%;
+    /* height: 100%; */
+    border: 2px solid #d4d4d4;
+    z-index: 0;
+}
+
+.o-auth-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
